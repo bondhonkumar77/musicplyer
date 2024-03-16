@@ -8,14 +8,15 @@ body {
 
 .container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
     height: 100vh;
     padding: 20px;
 }
 
 .sidebar {
     flex: 1;
+    overflow-y: auto;
+    margin-bottom: 20px;
 }
 
 .sidebar h2 {
@@ -42,7 +43,6 @@ body {
 }
 
 .player {
-    flex: 2;
     text-align: center;
 }
 
@@ -61,11 +61,35 @@ body {
     background-position: center;
 }
 
-audio {
-    width: 100%;
-    margin-bottom: 20px;
+.controls {
+    margin-top: 20px;
 }
 
-audio::-webkit-media-controls {
-    display: none;
+input[type="range"] {
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 10px;
+    border-radius: 5px;
+    background: #555;
+    outline: none;
+    margin-bottom: 10px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
 }
