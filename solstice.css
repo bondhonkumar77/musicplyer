@@ -16,8 +16,6 @@ body {
 .sidebar {
     flex: 1;
     margin-right: 20px;
-    padding-right: 20px;
-    border-right: 1px solid #ccc;
 }
 
 .sidebar h2 {
@@ -35,12 +33,12 @@ body {
 .sidebar li {
     cursor: pointer;
     padding: 10px;
-    border-bottom: 1px solid #eee;
+    border-radius: 5px;
     transition: background-color 0.3s ease;
 }
 
 .sidebar li:hover {
-    background-color: #f0f0f0;
+    background-color: #ddd;
 }
 
 .player {
@@ -96,6 +94,7 @@ input[type="range"]::-webkit-slider-thumb {
     border-radius: 50%;
     background: #333;
     cursor: pointer;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 }
 
 input[type="range"]::-moz-range-thumb {
@@ -104,4 +103,5 @@ input[type="range"]::-moz-range-thumb {
     border-radius: 50%;
     background: #333;
     cursor: pointer;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 }
