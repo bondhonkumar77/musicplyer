@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Array of song titles and source links
     const songs = [
-        { title: 'Song 1', src: 'https://github.com/bondhonkumar77/musicplyer/blob/main/%5BSPOTIFY-DOWNLOADER.COM%5D%20Solstice/Downtown.mp3' },
+        { title: 'Song 1', src: 'https://drive.google.com/file/d/1mZbc0JZ5zWSIGeQ0oMOB6JfeLwknHPcc/view?usp=drive_link/preview' },
         { title: 'Song 2', src: '[SPOTIFY-DOWNLOADER.COM] Solstice/Downtown.mp3' },
         { title: 'Song 3', src: 'https://example.com/song3.mp3' },
         { title: 'Song 4', src: 'https://example.com/song4.mp3' },
