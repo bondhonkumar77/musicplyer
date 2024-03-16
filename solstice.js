@@ -2,13 +2,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const audioPlayer = document.getElementById('audioPlayer');
     const thumbnail = document.querySelector('.thumbnail');
     const playlist = document.getElementById('playlist');
+    const songTitle = document.querySelector('.song-title');
     const timeBar = document.getElementById('timeBar');
     const volumeBar = document.getElementById('volumeBar');
 
     // Define an array of songs with their titles, source paths, and thumbnails
     const songs = [
-       
-                { title: 'Downtown', src: './Solstice/Downtown.mp3', thumbnail: './Solstice/Folder.jpg' },
+         { title: 'Downtown', src: './Solstice/Downtown.mp3', thumbnail: './Solstice/Folder.jpg' },
                 { title: 'Flight', src: './Solstice/Flight.mp3', thumbnail: './Solstice/Folder.jpg' },
                 { title: 'Moirse', src: './Solstice/Moires.mp3', thumbnail: './Solstice/Folder.jpg' },
                 { title: 'Riptide', src: './Solstice/Riptide.mp3', thumbnail: './Solstice/Folder.jpg' },
@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 { title: 'The Woods', src: './Solstice/The Woods.mp3', thumbnail: './Solstice/Folder.jpg' },
                 { title: 'Ziva', src: './Solstice/Ziva.mp3', thumbnail: './Solstice/Folder.jpg' },
                 { title: 'Safira', src: './Solstice/Safira.mp3', thumbnail: './Solstice/Folder.jpg' },
-        
         
         // Add more songs as needed
     ];
@@ -36,8 +35,10 @@ document.addEventListener('DOMContentLoaded', function() {
         if (event.target.tagName === 'LI') {
             const src = event.target.getAttribute('data-src');
             const thumbnailSrc = event.target.getAttribute('data-thumbnail');
+            const title = event.target.textContent;
             audioPlayer.src = src;
             thumbnail.style.backgroundImage = `url('${thumbnailSrc}')`;
+            songTitle.textContent = title;
             audioPlayer.play();
         }
     });
