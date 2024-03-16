@@ -1,35 +1,29 @@
-// Replace 'YOUR_GOOGLE_DRIVE_FOLDER_LINK' with the shared link to your Google Drive folder
-const folderLink = 'https://drive.google.com/drive/folders/1n2f7Fu8u3VT7clI7AlkZTnS2tyEB66CR?usp=sharing';
-
-// Function to fetch files from Google Drive folder
-async function getFilesFromFolder(folderLink) {
-    const response = await fetch(folderLink);
-    const html = await response.text();
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, 'text/html');
-    const links = Array.from(doc.links);
-    const audioFiles = links.filter(link => link.href.endsWith('.mp3'));
-    return audioFiles.map(file => ({
-        name: file.innerText,
-        src: file.href
-    }));
-}
-
-// Function to initialize the playlist
-async function initPlaylist() {
+document.addEventListener('DOMContentLoaded', () => {
     const playlist = document.getElementById('playlist');
-    const files = await getFilesFromFolder(folderLink);
+    const audioPlayer = document.getElementById('audioPlayer');
     
-    files.forEach(file => {
+    // Array of song titles and source links
+    const songs = [
+        { title: 'Song 1', src: 'https://example.com/song1.mp3' },
+        { title: 'Song 2', src: 'https://example.com/song2.mp3' },
+        { title: 'Song 3', src: 'https://example.com/song3.mp3' },
+        { title: 'Song 4', src: 'https://example.com/song4.mp3' },
+        { title: 'Song 5', src: 'https://example.com/song5.mp3' },
+        { title: 'Song 6', src: 'https://example.com/song6.mp3' },
+        { title: 'Song 7', src: 'https://example.com/song7.mp3' },
+        { title: 'Song 8', src: 'https://example.com/song8.mp3' },
+        { title: 'Song 9', src: 'https://example.com/song9.mp3' },
+        { title: 'Song 10', src: 'https://example.com/song10.mp3' }
+    ];
+
+    // Populate playlist
+    songs.forEach(song => {
         const listItem = document.createElement('li');
-        listItem.textContent = file.name;
+        listItem.textContent = song.title;
         listItem.addEventListener('click', () => {
-            document.getElementById('audioPlayer').src = file.src;
-            document.getElementById('audioPlayer').play();
+            audioPlayer.src = song.src;
+            audioPlayer.play();
         });
         playlist.appendChild(listItem);
     });
-}
-
-// Initialize the playlist
-initPlaylist();
+});
