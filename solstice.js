@@ -2,14 +2,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const audioPlayer = document.getElementById('audioPlayer');
     const thumbnail = document.querySelector('.thumbnail');
     const playlist = document.getElementById('playlist');
+    const timeBar = document.getElementById('timeBar');
+    const volumeBar = document.getElementById('volumeBar');
 
-    // Define an array of songs with their titles and source paths
+    // Define an array of songs with their titles, source paths, and thumbnails
     const songs = [
-        { title: 'Downtown', src: './Solstice/Downtown.mp3', thumbnail: './Solstice/Folder.jpg' },
+        { title: 'Song 1', src: 'path_to_song1.mp3', thumbnail: 'thumbnail1.jpg' },
         { title: 'Song 2', src: 'path_to_song2.mp3', thumbnail: 'thumbnail2.jpg' },
-              { title: 'Flight.', src: './Solstice/Flight.mp3', thumbnail: './Solstice/Folder.jpg' },
-              { title: 'Downtown', src: './Solstice/Downtown.mp3', thumbnail: './Solstice/Folder.jpg' },
-              { title: 'Downtown', src: './Solstice/Downtown.mp3', thumbnail: './Solstice/Folder.jpg' },
         // Add more songs as needed
     ];
 
@@ -31,5 +30,21 @@ document.addEventListener('DOMContentLoaded', function() {
             thumbnail.style.backgroundImage = `url('${thumbnailSrc}')`;
             audioPlayer.play();
         }
+    });
+
+    // Update time bar as audio plays
+    audioPlayer.addEventListener('timeupdate', function() {
+        timeBar.value = audioPlayer.currentTime;
+        timeBar.max = audioPlayer.duration;
+    });
+
+    // Seek to selected time on time bar change
+    timeBar.addEventListener('input', function() {
+        audioPlayer.currentTime = timeBar.value;
+    });
+
+    // Adjust volume on volume bar change
+    volumeBar.addEventListener('input', function() {
+        audioPlayer.volume = volumeBar.value;
     });
 });
